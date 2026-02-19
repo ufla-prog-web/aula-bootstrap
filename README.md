@@ -28,7 +28,7 @@
 
 O objetivo deste tutorial é introduzir os conceitos fundamentais do Framework CSS Bootstrap por meio do desenvolvimento de um projeto completo, que servirá como exemplo prático da camada de apresentação. Esse projeto será utilizado na disciplina GAC116 - Programação Web da Universidade Federal de Lavras (UFLA).
 
-O projeto proposto consiste na criação de uma Página Pessoal. A página conterá apenas um HTML em que todas as informações relevantes sobre o dono da página estarão disponíveis lá. A ideia da página é ter: foto de perfil, mini biografia, curso e informações gerais, habilidades (tecnologias e competências), projetos já desenvolvidos, interesses, contato, layout responsivo com Bootstrap e tema claro/escuro. A estilização do HTML será feita através das classes já prontas do Bootstrap.
+O projeto proposto consiste na criação de uma Página Pessoal. A página conterá apenas um HTML em que todas as informações relevantes sobre o dono da página estarão disponíveis lá. A ideia da página é ter: foto de perfil, mini biografia, curso e informações gerais, habilidades (tecnologias e competências), projetos já desenvolvidos, interesses, contato, layout responsivo com Bootstrap e tema claro/escuro. A estilização do HTML será feita através das classes já prontas do Bootstrap e será utilizado alguns ícones da biblioteca FontAwesome.
 
 A aula está organizada no formato de tutorial, permitindo que cada estudante replique em seu computador os conceitos e recursos apresentados. O código será desenvolvido gradualmente, de modo a evidenciar a evolução da solução e facilitar a compreensão de como as tecnologias HTML e Bootstrap se integram na construção de aplicações web.
 
@@ -46,6 +46,13 @@ A seguir estão listados os principais recursos empregados no desenvolvimento de
     * [Link do curso da W3Schools](https://www.w3schools.com/css/default.asp)
 * JavaScript - Responsável pelo comportamento e interatividade
     * [Link do curso da W3Schools](https://www.w3schools.com/js/default.asp)
+
+### Bibliotecas
+
+* FontAwesome - Biblioteca CSS para ícones
+  * [Link do site do Fontawesome](https://fontawesome.com/)
+  * [Link da documentação Fontawesome](https://docs.fontawesome.com/web/setup/get-started)
+  * [Link do curso da W3Schools](https://www.w3schools.com/icons/fontawesome5_intro.asp)
 
 ### Frameworks
 
@@ -111,7 +118,7 @@ Fonte: [https://twitter.com/cewebbr/status/1290302291388424193/photo/1](https://
 
 ### Fundamentos dos Frameworks CSS
 
-
+Uma informação importante para saber sobre o Bootstrap é que o mesmo funciona como "biblioteca de CSS pronta", contando com classes utilitárias e componentes já definidos e prontos para o uso.
 
 ## Objetivo da Aula
 
@@ -136,37 +143,40 @@ Siga os passos abaixo para alcançar o objetivo proposto: desenvolver uma **Pág
 Para iniciar, faça o clone do repositório com o seguinte comando:
 
 ```bash
-git clone https://github.com/ufla-prog-web/aula-html-bootstrap.git
+git clone https://github.com/ufla-prog-web/aula-bootstrap.git
 ```
 
 ### Baixar o Repositório
 
-Como alternativa ao clone, você pode baixar diretamente o repositório acessando este [link](https://github.com/ufla-prog-web/aula-html-bootstrap). Clique em `Code` e, em seguida, em `Download ZIP`.
+Como alternativa ao clone, você pode baixar diretamente o repositório acessando este [link](https://github.com/ufla-prog-web/aula-bootstrap). Clique em `Code` e, em seguida, em `Download ZIP`.
 
 ### Abrir o Visual Studio Code
 
-Abra o Visual Studio Code (VS Code) na pasta `aula-html-bootstrap`.
+Abra o Visual Studio Code (VS Code) na pasta `aula-bootstrap`.
 
 **Dica:** abra o arquivo `README.md` e selecione a opção `Open Preview to the Side` para visualizar o tutorial lado a lado enquanto desenvolve a aplicação.
 
 ### Criar a Organização do Projeto
 
-O primeiro passo que faremos é criar a seguinte estrutura de pastas e arquivos. Crie a estrutura abaixo na raiz do projeto `aula-html-bootstrap`.
+O primeiro passo que faremos é criar a seguinte estrutura de pastas e arquivos. Crie a estrutura abaixo na raiz do projeto `aula-bootstrap`.
 
 ```text
-code/
-  index.html
-  assets/
-    css/
-    js/
-    img/
+aula-bootstrap/
+    code/
+    index.html
+    assets/
+        css/
+        js/
+        img/
 ```
 
 ### Criar a Estrutura da Página
 
 O desenvolvimento de qualquer página web inicia-se pela definição de sua estrutura em HTML. Nesta etapa, o foco está na organização do conteúdo da página, e não em sua aparência visual.
 
-Dentro do arquivo `index.html` que foi criado na etapa anterior copie o código a seguir:
+**Atualizando o HTML**
+
+Dentro do arquivo `index.html`, que foi criado na etapa anterior, copie o código a seguir:
 
 ```html
 <!DOCTYPE html>
@@ -202,8 +212,6 @@ Dentro do arquivo `index.html` que foi criado na etapa anterior copie o código 
 * `data-bs-theme="light"`: controla o tema do Bootstrap (light/dark).
 * `class="bg-body"`: aplica cor de fundo padrão do tema atual (claro/escuro).
 
-Uma informação importante para saber sobre o Bootstrap é que o mesmo funciona como "biblioteca de CSS pronta", contando com classes utilitárias e componentes já definidos e prontos para o uso.
-
 ### Executar a Aplicação Web
 
 Abra o arquivo `index.html` em um navegador para visualizar o conteúdo da página. Isso pode ser feito de duas maneiras:
@@ -231,15 +239,13 @@ Após iniciar o servidor, abra o navegador e acesse a página.
 
 Note que, neste momento, a página não contém nenhum conteúdo. Nas próximas etapas, trabalharemos no conteúdo.
 
-### Criar a Navbar da Página Pessoal
+### Criar a Navbar da Página
 
 Nessa etapa, iremos criar a navbar da nossa página pessoal. Teremos links para sobre, habilidades, projetos, interesses, contato e tema.
 
-OBS: O Bootstrap precisa do JS dele para o menu "hambúrguer" quando executado pelo mobile.
-
 **Atualizando o HTML**
 
-Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. Atencão: O código abaixo deve ser colocado abaixo da tag body e acima do script javascript.
+Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. Atencão: O código abaixo deve ser colocado abaixo da tag *body* e acima do script javascript.
 
 ```html
 <!-- Navbar -->
@@ -289,15 +295,17 @@ Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. 
 * `btn btn-outline-secondary btn-sm`: botão pequeno, contorno, cor secundária.
 * `d-none d-lg-inline`: utilitários responsivos que some no mobile, aparece em telas grandes.
 
-Abra a aplicação no navegador e analise o resultado.
+Abra a aplicação no navegador e analise o resultado. O resultado deverá se assemelhar à imagem abaixo:
 
-### Criar a Seção de Informações Básicas da Página Pessoal
+![Imagem Página Pessoal - Navbar](./docs/navbar.png)
+
+### Criar a Seção de Informações Básicas da Página
 
 Nessa etapa, iremos criar uma seção de informações básicas em nossa página pessoal. Assim, teremos uma foto do perfil e uma pequena biografia do estudante. Além disso, teremos links para projetos, contato, github e linkedin.
 
 **Atualizando o HTML**
 
-Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag nav e acima do script javascript.
+Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag *nav* e acima do script javascript.
 
 ```html
 <!-- Header / Informações Básicas -->
@@ -363,7 +371,7 @@ Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. 
 </header>
 ```
 
-Em seguida, copie o arquivo `foto.svg` que está na pasta `aula-html-bootstrap/docs` para a pasta `code/assets/img`.
+Em seguida, copie o arquivo `foto.svg` que está na pasta `aula-bootstrap/docs` para a pasta `code/assets/img`.
 
 **Explicação sobre o código Bootstrap**
 
@@ -391,15 +399,17 @@ Em seguida, copie o arquivo `foto.svg` que está na pasta `aula-html-bootstrap/d
 * `mb-2`: margem inferior.
 * `mb-0`: remove margem padrão do parágrafo.
 
-Abra a aplicação no navegador e analise o resultado.
+Abra a aplicação no navegador e analise o resultado. O resultado deverá se assemelhar à imagem abaixo:
 
-### Criar a Seção de Sobre da Página Pessoal
+![Imagem Página Pessoal - Informações Básicas](./docs/info-basicas.png)
+
+### Criar a Seção de Sobre da Página
 
 Nessa etapa, iremos criar uma seção de sobre em nossa página pessoal. Assim, teremos uma pequena biografia do estudante e algumas informações rápidas sobre a cidade, idioma e a área de interesse.
 
 **Atualizando o HTML**
 
-Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag header e acima do script javascript.
+Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag *header* e acima do script javascript.
 
 ```html
 <main class="pb-5">
@@ -461,15 +471,17 @@ Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. 
 * `d-flex gap-2`: lista com ícone e texto em linha, com espaçamento.
 * `mt-1`: leve margin-top para alinhar o ícone ao texto.
 
-Abra a aplicação no navegador e analise o resultado.
+Abra a aplicação no navegador e analise o resultado. O resultado deverá se assemelhar à imagem abaixo:
 
-### Criar a Seção de Habilidades da Página Pessoal
+![Imagem Página Pessoal - Sobre](./docs/sobre.png)
+
+### Criar a Seção de Habilidades da Página
 
 Nessa etapa, iremos criar uma seção de habilidades em nossa página pessoal. Aqui, teremos dois cards principais: um com as tecnologias e outro com o nível de familiaridade.
 
 **Atualizando o HTML**
 
-Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag section (do sobre) e antes do fim da tag main.
+Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag *section* (do sobre) e antes do fim da tag *main*.
 
 ```html
 <!-- Habilidades -->
@@ -546,15 +558,17 @@ Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. 
 * `badge rounded-pill`: badge com formato de "pílula".
 * `flex-wrap`: permite quebrar linha dos badges.
 
-Abra a aplicação no navegador e analise o resultado.
+Abra a aplicação no navegador e analise o resultado. O resultado deverá se assemelhar à imagem abaixo:
 
-### Criar a Seção de Projetos da Página Pessoal
+![Imagem Página Pessoal - Habilidades](./docs/habilidades.png)
 
-Nessa etapa, iremos criar uma seção de projetos em nossa página pessoal. Aqui, teremos três cards principais: um para cada projeto que já participou.
+### Criar a Seção de Projetos da Página
+
+Nessa etapa, iremos criar uma seção de projetos em nossa página pessoal. Aqui, teremos três cards principais: um card para cada projeto que já participou.
 
 **Atualizando o HTML**
 
-Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag section (do habilidades) e antes do fim da tag main.
+Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag *section* (do habilidades) e antes do fim da tag *main*.
 
 ```html
 <!-- Projetos -->
@@ -660,15 +674,17 @@ Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. 
 * `small`: tipografia menor.
 * `btn-sm`: botão pequeno.
 
-Abra a aplicação no navegador e analise o resultado.
+Abra a aplicação no navegador e analise o resultado. O resultado deverá se assemelhar à imagem abaixo:
 
-### Criar a Seção de Interesses da Página Pessoal
+![Imagem Página Pessoal - Projetos](./docs/projetos.png)
+
+### Criar a Seção de Interesses da Página
 
 Nessa etapa, iremos criar uma seção de interesses em nossa página pessoal. Aqui, teremos dois cards principais para destacar os interesses.
 
 **Atualizando o HTML**
 
-Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag section (do projetos) e antes do fim da tag main.
+Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag *section* (do projetos) e antes do fim da tag *main*.
 
 ```html
 <!-- Interesses -->
@@ -716,15 +732,17 @@ Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. 
 
 * 
 
-Abra a aplicação no navegador e analise o resultado.
+Abra a aplicação no navegador e analise o resultado. O resultado deverá se assemelhar à imagem abaixo:
 
-### Criar a Seção de Contato da Página Pessoal
+![Imagem Página Pessoal - Interesses](./docs/interesses.png)
+
+### Criar a Seção de Contato da Página
 
 Nessa etapa, iremos criar uma seção de contato em nossa página pessoal. Aqui, teremos dois cards principais para destacar as informações de contato.
 
 **Atualizando o HTML**
 
-Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag section (do interesses) e antes do fim da tag main.
+Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag *section* (do interesses) e antes do fim da tag *main*.
 
 ```html
 <!-- Contato -->
@@ -794,15 +812,17 @@ Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. 
 
 * 
 
-Abra a aplicação no navegador e analise o resultado.
+Abra a aplicação no navegador e analise o resultado. O resultado deverá se assemelhar à imagem abaixo:
 
-### Criar o Rodapé da Página Pessoal
+![Imagem Página Pessoal - Contato](./docs/contato.png)
+
+### Criar o Rodapé da Página
 
 Nessa etapa, iremos criar um rodapé para em nossa página pessoal.
 
 **Atualizando o HTML**
 
-Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag main e antes da inclusão do script javascript.
+Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag *main* e antes da inclusão do script javascript.
 
 ```html
 <!-- Rodapé da Página -->
@@ -818,7 +838,9 @@ Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. 
 
 * 
 
-Abra a aplicação no navegador e analise o resultado.
+Abra a aplicação no navegador e analise o resultado. O resultado deverá se assemelhar à imagem abaixo:
+
+![Imagem Página Pessoal - Rodapé](./docs/rodape.png)
 
 ### Criar CSS Externo para Ajustes Finos
 
@@ -898,7 +920,10 @@ if (btn) {
 
 O Bootstrap 5.3 entende o atributo `data-bs-theme` e troca as cores automaticamente. Você não precisa reescrever CSS inteiro para o modo escuro, só pequenos ajustes.
 
-Abra a aplicação no navegador e analise o resultado.
+Abra a aplicação no navegador e analise o resultado. O resultado deverá se assemelhar às imagens abaixo:
+
+![Imagem Página Pessoal - Tema Light](./docs/tema-light.png)
+![Imagem Página Pessoal - Tema Dark](./docs/tema-dark.png)
 
 ### Publicar a Página no Github
 
@@ -918,26 +943,18 @@ Após a configuração, o GitHub Pages gerará um link onde a página poderá se
 
 ### Atividades
 
-Faça as seguintes alterações no jogo de forma que:
+Agora que você já conhece bem como construir uma página pessoal utilizando HTML e Bootstrap, realize as seguintes ações:
 
-* Suporte tabuleiro 4x4.
-* Altere as cores, fonte, espaçamento no CSS.
-* Pegue outras imagens de personagens na internet para personalizar o seu jogo.
-
-### Melhorias no Projeto do Jogo
-
-A seguir, são apresentadas algumas sugestões de aprimoramento para o projeto do jogo:
-
-* **Modos de Jogo Alternativos:** além do tabuleiro tradicional 3x3, implemente opções de tabuleiros maiores, como 4x4 ou 5x5, adicionando variedade e maior nível de desafio.
-* **Temas Visuais:** crie diferentes temas gráficos para o tabuleiro, como *Espaço*, *Fantasia*, *Subaquático* ou *Histórico*. Cada tema pode incluir planos de fundo exclusivos e ícones personalizados para os jogadores.
-* **Modo Torneio:** adicione uma funcionalidade em que o jogador que vencer 10 partidas consecutivas desbloqueie uma animação especial, com pódio e a opção de reiniciar o torneio.
-* **Destacar a Linha Vencedora:** adicione um destaque com cores a linha vencedora do jogo.
+* Coloque informações acadêmicas reais sobre você.
+* Publique a sua página pessoal no seu github.
+* Desenvolva a mesma página web utilizando um outro framework CSS.
+* Analise as diferenças entre os frameworks CSS utilizados.
 
 ## Desenvolva Novos Projetos
 
 <a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
 
-Com os conhecimentos adquiridos em HTML e Boostrap, desenvolva novos projetos para praticar e consolidar o aprendizado:
+Com os conhecimentos adquiridos em Boostrap, desenvolva novos projetos para praticar e consolidar o aprendizado:
 
 * Desenvolva uma página estática para um **restaurante**.
 * Desenvolva uma página estática para uma **lanchonete**.
@@ -947,7 +964,6 @@ Com os conhecimentos adquiridos em HTML e Boostrap, desenvolva novos projetos pa
 
 <a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
 
-Para aprofundar os estudos sobre HTML e Bootstrap, recomenda-se a consulta aos seguintes cursos:
+Para aprofundar os estudos sobre Bootstrap, recomenda-se a consulta ao seguinte curso:
 
-* [Curso de HTML - W3Schools](https://www.w3schools.com/html/default.asp)
 * [Curso de Bootstrap - W3Schools](https://www.w3schools.com/bootstrap5/index.php)
