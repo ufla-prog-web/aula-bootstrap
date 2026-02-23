@@ -26,11 +26,11 @@
 
 <a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
 
-O objetivo deste tutorial é introduzir os conceitos fundamentais do Framework CSS Bootstrap por meio do desenvolvimento de um projeto completo, que servirá como exemplo prático da camada de apresentação. Esse projeto será utilizado na disciplina GAC116 - Programação Web da Universidade Federal de Lavras (UFLA).
+O objetivo deste tutorial é introduzir os conceitos fundamentais do framework CSS Bootstrap por meio do desenvolvimento de um projeto prático, que servirá como exemplo prático da camada de apresentação. Esse projeto será usado na disciplina GAC116 - Programação Web da Universidade Federal de Lavras (UFLA).
 
-O projeto proposto consiste na criação de uma Página Pessoal. A página conterá apenas um HTML em que todas as informações relevantes sobre o dono da página estarão disponíveis lá. A ideia da página é ter: foto de perfil, mini biografia, curso e informações gerais, habilidades (tecnologias e competências), projetos já desenvolvidos, interesses, contato, layout responsivo com Bootstrap e tema claro/escuro. A estilização do HTML será feita através das classes já prontas do Bootstrap e será utilizado alguns ícones da biblioteca FontAwesome.
+O projeto proposto consiste na criação de uma Página Pessoal. A página conterá apenas um HTML em que todas as informações relevantes sobre o dono da página estarão disponíveis lá. A página terá: foto de perfil, mini biografia, curso e informações gerais, habilidades (tecnologias e competências), projetos já desenvolvidos, interesses, contato, layout responsivo com Bootstrap e tema claro/escuro. A estilização do HTML será feita através das classes já prontas do Bootstrap 5 e serão utilizados alguns ícones da biblioteca FontAwesome.
 
-A aula está organizada no formato de tutorial, permitindo que cada estudante replique em seu computador os conceitos e recursos apresentados. O código será desenvolvido gradualmente, de modo a evidenciar a evolução da solução e facilitar a compreensão de como as tecnologias HTML e Bootstrap se integram na construção de aplicações web.
+A aula está organizada no formato de tutorial, permitindo que cada estudante replique em seu computador os conceitos e recursos apresentados. O código será desenvolvido gradualmente para evidenciar a evolução da solução. Isso facilita a compreensão de como as tecnologias HTML e Bootstrap se integram na construção de aplicações web.
 
 ## Recursos Utilizados
 
@@ -56,7 +56,7 @@ A seguir estão listados os principais recursos empregados no desenvolvimento de
 
 ### Frameworks
 
-* Bootstrap - Framework CSS
+* Bootstrap - Framework CSS (versão 5.3)
   * [Link do site do Bootstrap](https://getbootstrap.com/)
   * [Link do curso da W3Schools](https://www.w3schools.com/bootstrap5/index.php)
 
@@ -66,7 +66,7 @@ A seguir estão listados os principais recursos empregados no desenvolvimento de
 * Git - Sistema de controle de versão - [Link](https://git-scm.com/)
 * Github - Plataforma de hospedagem e colaboração em projetos de software - [Link](https://github.com/)
 * Live Server (Extensão VS Code) - Servidor web para desenvolvimento local - [Link](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
-* http.server - Servidor web simples incluso na biblioteca padrão do Python - [Link](https://docs.python.org/3/library/http.server.html)
+* http.server - Servidor web simples incluído na biblioteca padrão do Python - [Link](https://docs.python.org/3/library/http.server.html)
 
 ## Fundamentos Teóricos
 
@@ -116,9 +116,69 @@ O presente projeto foca no desenvolvimento da Camada de Apresentação. Essa cam
 
 Fonte: [https://twitter.com/cewebbr/status/1290302291388424193/photo/1](https://twitter.com/cewebbr/status/1290302291388424193/photo/1)
 
-### Fundamentos dos Frameworks CSS
+### Fundamentos do Framework CSS - Bootstrap
 
-Uma informação importante para saber sobre o Bootstrap é que o mesmo funciona como "biblioteca de CSS pronta", contando com classes utilitárias e componentes já definidos e prontos para o uso.
+Frameworks CSS são bibliotecas pré-configuradas e conjuntos de regras (como classes e componentes prontos) que facilitam o desenvolvimento de sites, evitando escrever CSS do zero. Eles agilizam a criação de layouts responsivos, consistentes e organizados, oferecendo componentes como botões, barras de navegação e grids, prontos para uso.
+
+O que é o Bootstrap? O Bootstrap é um framework front-end que reúne CSS, JavaScript e componentes HTML estruturados para facilitar o desenvolvimento de interfaces web responsivas. O Bootstrap oferece:
+
+* Sistema de grid responsivo.
+* Classes utilitárias prontas.
+* Componentes visuais (navbar, cards, botões, etc.).
+* Componentes interativos (collapse, modal, dropdown, carousel, etc.).
+
+Embora seja muito conhecido pelo CSS, o Bootstrap também inclui JavaScript próprio para permitir comportamentos interativos.
+
+#### Sistema de Grid Responsivo
+
+Com o sistema de grid do Bootstrap, você pode controlar facilmente como o layout do seu site será exibido em diferentes tipos de dispositivos com tamanhos de tela ou viewport distintos, como celulares, tablets, computadores, etc. Veja a seguinte figura.
+
+![Sistema de Grid em Diferentes Telas](./docs/grid-system-illustration.jpg)
+
+Fonte: [https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-grid-system.php](https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-grid-system.php)
+
+Na figura acima, existem 12 caixas de conteúdo no total em todos os dispositivos, mas seu posicionamento varia de acordo com o tamanho da tela. Por exemplo, em dispositivos móveis, o layout é renderizado como uma grade de uma coluna, com 1 coluna e 12 linhas dispostas umas sobre as outras, enquanto em tablets é renderizado como uma grade de duas colunas, com 2 colunas e 6 linhas. Além disso, em dispositivos com telas grandes, como laptops e desktops, ele é renderizado em um layout de grade de três colunas, que possui 3 colunas e 4 linhas, e, finalmente, em dispositivos com telas extragrandes, como desktops grandes, ele é renderizado em um layout de grade de quatro colunas, que possui 4 colunas e 3 linhas.
+
+A imagem abaixo ilustra a organização lógica do sistema de grid do Bootstrap.
+
+![Organização Lógica do Sistema de Grid](./docs/grid-bootstrap.png)
+
+Fonte: [https://nmi.cool/webdev/bootstrap/](https://nmi.cool/webdev/bootstrap/)
+
+Para mais informações sobre o funcionamento do sistema de Grid, acesse [link](https://getbootstrap.com/docs/5.3/layout/grid/). Dica: Leia a documentação e realize experimentos sobre os códigos mostrado utilizando o editor StackBlitz sugerido na documentação.
+
+O Bootstrap utiliza um sistema de breakpoints para ajustar o layout da tela. Os breakpoints são pontos de largura da tela onde o layout pode mudar. No Bootstrap 5, os principais breakpoints são:
+
+| Prefixo | Largura mínima  |
+| ------- | --------------- |
+| `sm`    | ≥ 576 px        |
+| `md`    | ≥ 768 px        |
+| `lg`    | ≥ 992 px        |
+| `xl`    | ≥ 1200 px       |
+| `xxl`   | ≥ 1400 px       |
+
+#### Classes Utilitárias Prontas
+
+O Bootstrap já oferece muitas classes utilitárias:
+
+| Objetivo           | Classe Bootstrap                                 |
+| ------------------ | ------------------------------------------------ |
+| Conteiner          | `container`, `row`, `col-12`, `col-lg-4`         |
+| Botão              | `btn`, `btn-primary`, `btn-outline-primary`      |
+| Card               | `card`, `card-body`                              |
+| Barra de Progresso | `progress`, `progress-bar`                       |
+| Texto              | `text-center`, `text-primary`, `text-bg-primary` |
+| Barra de navegação | `navbar`, `navbar-expand-lg`, `navbar-brand`     |
+| Margem             | `m-3`, `mt-5`, `mb-2`, `my-4`                    |
+| Padding            | `p-4`, `pb-5`, `py-4`                            |
+
+Antes de criar CSS personalizado, verifique se o Bootstrap já oferece uma classe para o que você precisa.
+
+Quando usar CSS personalizado?
+
+* Ajustes muito específicos
+* Estilização única do projeto
+* Sobrescrever comportamentos padrão
 
 ## Objetivo da Aula
 
@@ -210,7 +270,15 @@ Dentro do arquivo `index.html`, que foi criado na etapa anterior, copie o códig
 **Explicação sobre o código Bootstrap**
 
 * `data-bs-theme="light"`: controla o tema do Bootstrap (light/dark).
-* `class="bg-body"`: aplica cor de fundo padrão do tema atual (claro/escuro).
+* `bg-body`: aplica cor de fundo padrão do tema atual (claro/escuro).
+
+**Explicação sobre o código HTML**
+
+* Ordem correta de inclusão:
+    * Bootstrap CSS
+    * CSS personalizado
+    * Bootstrap JS
+    * JavaScript personalizado
 
 ### Executar a Aplicação Web
 
@@ -245,7 +313,7 @@ Nessa etapa, iremos criar a navbar da nossa página pessoal. Teremos links para 
 
 **Atualizando o HTML**
 
-Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. Atencão: O código abaixo deve ser colocado abaixo da tag *body* e acima do script javascript.
+Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. Atenção: O código abaixo deve ser colocado abaixo da tag *body* e acima do script javascript.
 
 ```html
 <!-- Navbar -->
@@ -278,22 +346,49 @@ Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. 
 
 **Explicação sobre o código Bootstrap**
 
-* `navbar`: componente de barra de navegação.
-* `navbar-expand-lg`: no mobile a navbar "colapsa"; a partir de `lg` ela expande.
-* `border-bottom`: borda inferior discreta.
-* `sticky-top`: deixa a navbar "grudada" no topo ao rolar.
-* `container`: centraliza e limita largura (layout responsivo).
-* `navbar-brand`: área de marca/título.
-* `fw-semibold`: fonte semi-negrito.
-* `navbar-toggler`: botão "hambúrguer".
-* `data-bs-toggle="collapse"` + `data-bs-target="#navContent"`: ativa o comportamento de abrir/fechar menu (precisa do `bootstrap.bundle.min.js`).
-* `collapse navbar-collapse`: área que colapsa/expande.
-* `navbar-nav`: lista de links no padrão do Bootstrap.
-* `ms-auto`: empurra a lista para a direita (margin-start auto).
-* `gap-lg-1`: espaçamento entre itens a partir de `lg`.
-* `d-flex align-items-center gap-2`: organiza o "Tema + botão" alinhado e com espaçamento.
-* `btn btn-outline-secondary btn-sm`: botão pequeno, contorno, cor secundária.
-* `d-none d-lg-inline`: utilitários responsivos que some no mobile, aparece em telas grandes.
+* `container`: Centraliza e limita a largura do conteúdo (layout responsivo).
+* `navbar`: Cria uma barra de navegação estilizada.
+* `navbar-expand-lg`: Expande a navbar a partir de telas grandes (lg).
+* `navbar-brand`: Estiliza a marca ou logotipo da navbar.
+* `navbar-toggler-icon`: Ícone padrão do botão hamburguer.
+* `navbar-collapse`: Ajusta layout do conteúdo colapsável na navbar.
+* `navbar-nav`: Estiliza lista de navegação.
+* `navbar-toggler`: Botão que controla o menu colapsável.
+* `nav-item`: Define item individual da navegação.
+* `nav-link`: Estiliza links da navbar.
+* `data-bs-toggle="collapse"`: Ativa comportamento de colapso via JavaScript.
+* `data-bs-target="#navContent"`: Define o elemento que será colapsado/expandido.
+* `collapse`: Torna o elemento colapsável.
+* `border-bottom`: Adiciona borda inferior ao elemento.
+* `sticky-top`: Fixa o elemento no topo ao rolar a página.
+* `fw-semibold`: Aplica semi-negrito na fonte.
+* `ms-auto`: Aplica margem automática à esquerda (empurra para a direita).
+* `ms-lg-3`: Aplica margem esquerda em telas grandes.
+* `gap-lg-1`: Define espaçamento entre itens em telas grandes.
+* `gap-2`: Espaçamento entre elementos flex/grid.
+* `py-2`: Padding vertical médio.
+* `py-lg-0`: Remove padding vertical em telas grandes.
+* `align-items-center`: Alinha itens verticalmente ao centro (flex).
+* `small`: Aplica tamanho de fonte reduzido.
+* `text-secondary`: Aplica cor de texto secundária.
+* `d-flex`: Ativa layout flexbox.
+* `d-none`: Oculta o elemento.
+* `d-lg-inline`: Exibe como inline em telas grandes.
+* `btn`: Estiliza como botão Bootstrap.
+* `btn-outline-secondary`: Botão com borda e cor secundária.
+* `btn-sm`: Botão em tamanho pequeno.
+
+**Explicação sobre o código FontAwesome**
+
+* `fa-solid`: define o estilo do ícone (preenchido).
+* `fa-code`: representa o ícone de código.
+* `fa-moon`: representa o ícone de lua.
+
+O Font Awesome organiza seus ícones por estilos, como:
+
+* `fa-solid`: ícones preenchidos (estilo sólido).
+* `fa-regular`: ícones com traço fino.
+* `fa-brands`: ícones de marcas (GitHub, Instagram, etc.).
 
 Abra a aplicação no navegador e analise o resultado. O resultado deverá se assemelhar à imagem abaixo:
 
@@ -305,7 +400,7 @@ Nessa etapa, iremos criar uma seção de informações básicas em nossa página
 
 **Atualizando o HTML**
 
-Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag *nav* e acima do script javascript.
+Inclua no arquivo `index.html` o conteúdo abaixo. Atenção: O código abaixo deve ser colocado logo após o fim da tag *nav* e acima do script javascript.
 
 ```html
 <!-- Header / Informações Básicas -->
@@ -360,7 +455,7 @@ Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo de
                                 <strong>Objetivo</strong>
                             </div>
                             <p class="mb-0 text-secondary">
-                                Aprimorar habilidades em web (front-end e back-end) e participar de projetos práticos no semestre.
+                                Aprimorar habilidades em web (frontend e backend) e participar de projetos práticos no semestre.
                             </p>
                         </div>
                     </div>
@@ -375,29 +470,38 @@ Em seguida, copie o arquivo `foto.svg` que está na pasta `aula-bootstrap/docs` 
 
 **Explicação sobre o código Bootstrap**
 
-* `py-5`: padding vertical grande (topo e base).
 * `row`: informações em linha.
-* `col-12`: ocupa 100% no mobile.
-* `col-lg-4` / `col-lg-8`: em telas grandes divide em 4/8 colunas.
-* `g-4`: "gap" do grid (espaçamento entre colunas).
-* `align-items-center`: alinha verticalmente os itens no centro.
-* `text-center`: centraliza texto.
-* `shadow-sm`: sombra leve (para destacar a imagem).
-* `badge`: etiqueta.
-* `text-bg-primary`: badge com fundo na cor primária e texto adequado.
-* `me-1`: margin-end (direita) 1 (espaço entre badges).
-* `display-6`: tamanho de título grande e padronizado.
-* `lead`: parágrafo com destaque.
-* `d-flex flex-wrap gap-2`: botões em linha, quebrando quando faltar espaço e com espaçamento.
-* `my-4`: margem vertical (topo e base).
-* `col-md-6`: 50% da largura em telas médias ou maiores.
-* `p-3`: espaçamento interno.
-* `rounded-3`: bordas arredondadas.
-* `border`: borda padrão.
-* `bg-body-tertiary`: fundo suave adaptável ao tema.
-* `gap-2`: espaço entre ícone e texto.
-* `mb-2`: margem inferior.
-* `mb-0`: remove margem padrão do parágrafo.
+* `col-12`: Coluna ocupando toda largura.
+* `col-lg-4`: Coluna ocupando 4 de 12 colunas em telas grandes.
+* `col-md-6`: Coluna ocupando metade da largura em telas médias.
+* `col-lg-8`: Coluna ocupando 8 de 12 colunas em telas grandes.
+* `profile-img`: Classe personalizada para estilização da imagem.
+* `shadow-sm`: Aplica sombra pequena (para destacar a imagem).
+* `badge`: Cria rótulo/etiqueta estilizada.
+* `flex-wrap`: Permite quebra de linha no flexbox.
+* `display-6`: Texto grande de destaque.
+* `text-center`: Centraliza o texto.
+* `text-bg-primary`: Fundo primário com texto contrastante automático.
+* `text-bg-secondary`: Fundo secundário com texto contrastante.
+* `text-primary`: Aplica cor primária ao texto.
+* `lead`: Destaca parágrafo com fonte maior.
+* `btn-primary`: Botão com cor primária preenchida.
+* `btn-outline-primary`: Botão com borda primária.
+* `border`: Adiciona borda padrão.
+* `bg-body-tertiary`: Aplica fundo terciário suave.
+* `rounded-3`: Bordas arredondadas médias.
+* `py-5`: Padding vertical grande (topo e base).
+* `my-4`: Margem vertical grande (topo e base).
+* `mt-3`: Margem superior média.
+* `me-1`: Margem direita (margin-end) pequena.
+* `g-4`: Espaçamento ("gap") entre colunas.
+* `g-3`: Espaçamento médio entre colunas do grid.
+* `p-3`: Padding médio em todos os lados.
+* `pb-5`: Padding inferior grande.
+* `mb-4`: Margem inferior grande.
+* `mb-3`: Margem inferior média.
+* `mb-2`: Margem inferior pequena.
+* `mb-0`: Remove margem inferior.
 
 Abra a aplicação no navegador e analise o resultado. O resultado deverá se assemelhar à imagem abaixo:
 
@@ -409,7 +513,7 @@ Nessa etapa, iremos criar uma seção de sobre em nossa página pessoal. Assim, 
 
 **Atualizando o HTML**
 
-Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag *header* e acima do script javascript.
+Inclua no arquivo `index.html` o conteúdo abaixo. Atenção: O código abaixo deve ser colocado logo após o fim da tag *header* e acima do script javascript.
 
 ```html
 <main class="pb-5">
@@ -462,14 +566,16 @@ Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo de
 
 **Explicação sobre o código Bootstrap**
 
-* `pb-5`: padding-bottom para dar "respiro" no final.
-* `py-4`: padding vertical médio nas seções.
-* `h4, h6`: classes de tipografia do Bootstrap (tamanhos padronizados).
-* `card`: componente visual para agrupar conteúdo.
-* `card-body`: padding interno do card.
-* `list-unstyled`: remove marcadores e recuo padrão da lista.
-* `d-flex gap-2`: lista com ícone e texto em linha, com espaçamento.
-* `mt-1`: leve margin-top para alinhar o ícone ao texto.
+* `col-lg-7`: Coluna ocupando 7 de 12 colunas em telas grandes.
+* `col-lg-5`: Coluna ocupando 5 de 12 colunas em telas grandes.
+* `card`: Componente visual em formato de cartão.
+* `card-body`: Área interna do conteúdo do card.
+* `list-unstyled`: Remove marcadores e padding da lista.
+* `align-items-start`: Alinha itens ao topo no flexbox.
+* `py-4`: Padding vertical médio-grande.
+* `mb-1`: Margem inferior pequena.
+* `h4`: Aplica estilo visual de título nível 4.
+* `h6`: Aplica estilo visual de título nível 6.
 
 Abra a aplicação no navegador e analise o resultado. O resultado deverá se assemelhar à imagem abaixo:
 
@@ -481,7 +587,7 @@ Nessa etapa, iremos criar uma seção de habilidades em nossa página pessoal. A
 
 **Atualizando o HTML**
 
-Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag *section* (do sobre) e antes do fim da tag *main*.
+Inclua no arquivo `index.html` o conteúdo abaixo. Atenção: O código abaixo deve ser colocado logo após o fim da tag *section* (do sobre) e antes do fim da tag *main*.
 
 ```html
 <!-- Habilidades -->
@@ -554,9 +660,15 @@ Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo de
 
 **Explicação sobre o código Bootstrap**
 
-* `h-100`: faz o card ocupar a altura total da coluna (para alinhar cards lado a lado).
-* `badge rounded-pill`: badge com formato de "pílula".
-* `flex-wrap`: permite quebrar linha dos badges.
+* `section-title`: Classe personalizada para título de seção.
+* `col-lg-6`: Coluna ocupando metade da largura em telas grandes.
+* `card`: Componente de cartão estilizado.
+* `justify-content-between`: Distribui elementos com espaço entre eles (flex).
+* `progress`: Container da barra de progresso.
+* `progress-bar`: Barra interna que indica progresso.
+* `rounded-pill`: Bordas totalmente arredondadas (formato pílula).
+* `mt-1`: Margem superior pequena.
+* `h-100`: Altura igual a 100% do elemento pai.
 
 Abra a aplicação no navegador e analise o resultado. O resultado deverá se assemelhar à imagem abaixo:
 
@@ -568,7 +680,7 @@ Nessa etapa, iremos criar uma seção de projetos em nossa página pessoal. Aqui
 
 **Atualizando o HTML**
 
-Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag *section* (do habilidades) e antes do fim da tag *main*.
+Inclua no arquivo `index.html` o conteúdo abaixo. Atenção: O código abaixo deve ser colocado logo após o fim da tag *section* (do habilidades) e antes do fim da tag *main*.
 
 ```html
 <!-- Projetos -->
@@ -584,7 +696,7 @@ Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo de
                     <div class="card-body d-flex flex-column">
                         <div class="d-flex align-items-start justify-content-between gap-2">
                             <h3 class="h6 mb-1">Jogo da Velha</h3>
-                            <span class="badge text-bg-secondary">HTM</span>
+                            <span class="badge text-bg-secondary">HTML</span>
                             <span class="badge text-bg-secondary">CSS</span>
                             <span class="badge text-bg-secondary">JavaScript</span>
                         </div>
@@ -614,7 +726,7 @@ Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo de
                             <h3 class="h6 mb-1">Página Pessoal</h3>
                             <span class="badge text-bg-secondary">HTML</span>
                             <span class="badge text-bg-secondary">Bootstrap</span>
-                            <span class="badge text-bg-secondary">FontAwnsome</span>
+                            <span class="badge text-bg-secondary">FontAwesome</span>
                         </div>
                         <p class="text-secondary small">
                             Implementação de página pessoal com seções e navegação.
@@ -640,7 +752,7 @@ Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo de
                     <div class="card-body d-flex flex-column">
                         <div class="d-flex align-items-start justify-content-between gap-2">
                             <h3 class="h6 mb-1">Calculadora Web</h3>
-                            <span class="badge text-bg-secondary">Front-end</span>
+                            <span class="badge text-bg-secondary">Frontend</span>
                         </div>
                         <p class="text-secondary small">
                             Calculadora com operações básicas e interface responsiva.
@@ -668,11 +780,8 @@ Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo de
 
 **Explicação sobre o código Bootstrap**
 
-* `row g-4` dentro do card: cria uma "sub-grade" para listar projetos.
-* `col-md-6`: em telas médias, mostra 2 projetos por linha.
-* `border rounded-3 p-3`: "mini-card" sem usar componente card completo.
-* `small`: tipografia menor.
-* `btn-sm`: botão pequeno.
+* `flex-column`: Organiza elementos em coluna (flex).
+* `mt-auto`: Empurra elemento para o final usando margem automática.
 
 Abra a aplicação no navegador e analise o resultado. O resultado deverá se assemelhar à imagem abaixo:
 
@@ -684,7 +793,7 @@ Nessa etapa, iremos criar uma seção de interesses em nossa página pessoal. Aq
 
 **Atualizando o HTML**
 
-Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag *section* (do projetos) e antes do fim da tag *main*.
+Inclua no arquivo `index.html` o conteúdo abaixo. Atenção: O código abaixo deve ser colocado logo após o fim da tag *section* (do projetos) e antes do fim da tag *main*.
 
 ```html
 <!-- Interesses -->
@@ -699,7 +808,7 @@ Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo de
                 <div class="card shadow-sm h-100">
                     <div class="card-body">
                         <ul class="mb-0">
-                        <li>Desenvolvimento Web (Front-end e Back-end)</li>
+                        <li>Desenvolvimento Web (frontend e backend)</li>
                         <li>Banco de Dados e modelagem</li>
                         <li>Algoritmos e estruturas de dados</li>
                         <li>Engenharia de Software</li>
@@ -730,7 +839,7 @@ Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo de
 
 **Explicação sobre o código Bootstrap**
 
-* 
+* `text-bg-light`: Fundo claro com texto contrastante automático.
 
 Abra a aplicação no navegador e analise o resultado. O resultado deverá se assemelhar à imagem abaixo:
 
@@ -742,7 +851,7 @@ Nessa etapa, iremos criar uma seção de contato em nossa página pessoal. Aqui,
 
 **Atualizando o HTML**
 
-Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag *section* (do interesses) e antes do fim da tag *main*.
+Inclua no arquivo `index.html` o conteúdo abaixo. Atenção: O código abaixo deve ser colocado logo após o fim da tag *section* (do interesses) e antes do fim da tag *main*.
 
 ```html
 <!-- Contato -->
@@ -808,10 +917,6 @@ Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo de
 </section>
 ```
 
-**Explicação sobre o código Bootstrap**
-
-* 
-
 Abra a aplicação no navegador e analise o resultado. O resultado deverá se assemelhar à imagem abaixo:
 
 ![Imagem Página Pessoal - Contato](./docs/contato.png)
@@ -822,7 +927,7 @@ Nessa etapa, iremos criar um rodapé para em nossa página pessoal.
 
 **Atualizando o HTML**
 
-Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo deve ser colocado logo após o fim da tag *main* e antes da inclusão do script javascript.
+Inclua no arquivo `index.html` o conteúdo abaixo. Atenção: O código abaixo deve ser colocado logo após o fim da tag *main* e antes da inclusão do script javascript.
 
 ```html
 <!-- Rodapé da Página -->
@@ -836,7 +941,8 @@ Inclua no arquivo `index.html` o conteúdo abaixo. Atencão: O código abaixo de
 
 **Explicação sobre o código Bootstrap**
 
-* 
+* `border-top`: Adiciona borda superior.
+* `flex-md-row`: Organiza elementos em linha a partir de telas médias.
 
 Abra a aplicação no navegador e analise o resultado. O resultado deverá se assemelhar à imagem abaixo:
 
@@ -925,6 +1031,35 @@ Abra a aplicação no navegador e analise o resultado. O resultado deverá se as
 ![Imagem Página Pessoal - Tema Light](./docs/tema-light.png)
 ![Imagem Página Pessoal - Tema Dark](./docs/tema-dark.png)
 
+### Analisar a Responsividade do Projeto
+
+Nesta etapa, iremos aprender a analisar a responsidade do projeto. Para testar a responsividade, utilizaremos as Ferramentas do Desenvolvedor do navegador.
+
+**Abra o Inspecionar**
+
+No navegador (Chrome, Edge ou Firefox):
+
+* Clique com o botão direito na página
+* Selecione Inspecionar
+
+ou use o atalho:
+
+* F12
+
+Isso abrirá o painel de desenvolvimento, gerando uma imagem semelhante a mostrada abaixo.
+
+![Imagem Tela Inspecionar](./docs/inspecionar.png)
+
+**Ative o Modo Dispositivo**
+
+No painel aberto, clique no ícone de alternar dispositivo (ícone de celular/tablet) ou use o atalho `Ctrl + Shift + M`. Agora a página será exibida simulando diferentes dispositivos.
+
+Agora, altere o tamanho da tela, escolhondo dispositivos prontos (iPhone, Galaxy, iPad, etc.). Você podem também definir largura e altura manualmente, ou ainda, arrastar a borda da área de visualização.
+
+Ao fazer as modificações na largura, observe como as colunas se reorganizam, a navbar colapsa, os elementos mudam de posição, alguns elementos aparecem ou desaparecem (`d-none`, `d-lg-inline`).
+
+Um conceito importante a ser destacado é que o Bootstrap utiliza a abordagem *Mobile First*. Isso significa que o layout padrão é pensado primeiro para telas pequenas, ajustes para telas maiores são adicionados progressivamente.
+
 ### Publicar a Página no Github
 
 Para disponibilizar a página desenvolvida no GitHub Pages, siga os passos abaixo:
@@ -940,6 +1075,7 @@ Para disponibilizar a página desenvolvida no GitHub Pages, siga os passos abaix
 ![Publicando a Página Pessoal no Github](./docs/postando-pagina-pessoal-github.png)
 
 Após a configuração, o GitHub Pages gerará um link onde a página poderá ser acessada online.
+Para ver o projeto, acesse a URL que terá uma forma parecida com a seguinte: https://**seu-usuario**.github.io/**seu-projeto**/page/
 
 ### Atividades
 
