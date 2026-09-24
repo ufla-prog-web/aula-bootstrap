@@ -318,9 +318,17 @@ Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. 
         <a class="navbar-brand fw-semibold" href="#top">
             <i class="fa-solid fa-code me-2"></i>Meu Portfólio
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navContent"
+                aria-controls="navContent"
+                aria-expanded="false"
+                aria-label="Alternar menu de navegação"
+            >
+                <span class="navbar-toggler-icon" aria-hidden="true"></span>
+            </button>
         <div class="collapse navbar-collapse" id="navContent">
             <ul class="navbar-nav ms-auto gap-lg-1">
                 <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
@@ -330,9 +338,14 @@ Inclua no arquivo `index.html`, localizado na pasta `code`, o conteúdo abaixo. 
                 <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
             </ul>
             <div class="ms-lg-3 d-flex align-items-center gap-2 py-2 py-lg-0">
-                <span class="small text-secondary d-none d-lg-inline">Tema</span>
-                <button id="themeToggle" class="btn btn-outline-secondary btn-sm" type="button">
-                    <i class="fa-solid fa-moon"></i>
+                <button 
+                    id="themeToggle" 
+                    class="btn btn-outline-secondary btn-sm" 
+                    type="button"
+                    aria-label="Alternar tema claro e escuro"
+                    title="Alternar tema claro e escuro"
+                >
+                    Tema <i class="fa-solid fa-moon" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
@@ -991,9 +1004,9 @@ function applyTheme(theme) {
     // Se o botão existir, atualiza o ícone
     if (btn) {
         if (theme === "dark") {
-            btn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            btn.innerHTML = 'Tema <i class="fa-solid fa-sun" aria-hidden="true"></i>';
         } else {
-            btn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            btn.innerHTML = 'Tema <i class="fa-solid fa-moon" aria-hidden="true"></i>';
         }
     }
 }

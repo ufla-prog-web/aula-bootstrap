@@ -11,9 +11,9 @@ function applyTheme(theme) {
     // Se o botão existir, atualiza o ícone
     if (btn) {
         if (theme === "dark") {
-            btn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            btn.innerHTML = 'Tema <i class="fa-solid fa-sun" aria-hidden="true"></i>';
         } else {
-            btn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            btn.innerHTML = 'Tema <i class="fa-solid fa-moon" aria-hidden="true"></i>';
         }
     }
 }
