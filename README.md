@@ -221,13 +221,14 @@ Abra o Visual Studio Code (VS Code) na pasta `aula-bootstrap`.
 O primeiro passo que faremos é criar a seguinte estrutura de pastas e arquivos. Crie a estrutura abaixo na raiz do projeto `aula-bootstrap`.
 
 ```text
-aula-bootstrap/
-    code/
-        index.html
-        assets/
-            css/
-            js/
-            img/
+🗂️ aula-bootstrap/
+└── 📂 code/
+    ├── 📄 index.html
+    └── 📂 assets/
+        └── 📂 css/
+        └── 📂 js/
+        └── 📂 img/
+
 ```
 
 ### Criar a Estrutura da Página
